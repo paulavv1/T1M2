@@ -1,12 +1,11 @@
-import { Injectable } from '@angular/core';
-import { Geolocation, GeolocationPosition } from '@capacitor/geolocation';
+import { Component } from '@angular/core';
+import { IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
 
-@Injectable({
-  providedIn: 'root',
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [IonicModule, CommonModule],
+  template: `<ion-app><ion-router-outlet></ion-router-outlet></ion-app>`,
 })
-export class GeolocationService {
-  async obtenerUbicacion(): Promise<GeolocationPosition> {
-    const position = await Geolocation.getCurrentPosition();
-    return position;
-  }
-}
+export class AppComponent {}
